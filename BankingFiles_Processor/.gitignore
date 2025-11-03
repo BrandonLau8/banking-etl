@@ -1,0 +1,6 @@
+.env
+/RawData/
+**/db_backups/
+*.sql
+/dags/__pycache__
+/logs/

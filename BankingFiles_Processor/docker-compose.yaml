@@ -1,0 +1,33 @@
+services:
+  # Main PostgreSQL Database
+  banking_db:
+    image: postgres:17.5
+    container_name: banking_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - bankingfiles_processor_banking_db-volume:/var/lib/postgresql/data
+      - ./sql/banking.sql:/sql/banking.sql
+      - ./sql/banking_functions.sql:/sql/banking_functions.sql
+      - ../db_backups:/backups
+    restart: unless-stopped
+
+#  # Development container (optional)
+#  devcontainer:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.dev
+#    container_name: banking_devcontainer
+#    depends_on:
+#      - banking_db
+#    volumes:
+#      - .:/app
+#    command: sleep infinity
+#
+volumes:
+  bankingfiles_processor_banking_db-volume:
+    external: true # This tells Docker to use the existing volume, not create a new one
