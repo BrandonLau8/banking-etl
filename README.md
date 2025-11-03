@@ -181,24 +181,6 @@ This design eliminates the need for PostgreSQL installation on the host.
 - Enable S3 encryption (configured by default)
 - Use minimal IAM permissions (configured by default)
 
-## Development
-
-### VS Code Dev Container
-
-The project includes dev container configuration:
-
-1. Install "Dev Containers" extension
-2. Press `Ctrl+Shift+P` -> "Dev Containers: Reopen in Container"
-3. Workspace automatically mounts to `/app`
-
-### Backup Automation
-
-Schedule backups with cron:
-
-```bash
-0 2 * * * cd /path/to/Banking/BankingFiles_Processor && python backup_script.py >> /var/log/banking_backup.log 2>&1
-```
-
 ## Troubleshooting
 
 ### Database Connection Issues
