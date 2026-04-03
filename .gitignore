@@ -2,6 +2,7 @@
 db_backups
 CLAUDE.md
 BankingFiles_Processor/RawData/
+bankingterraform-admin_accessKeys.csv
 
 ### Terraform template
 # Local .terraform directories
